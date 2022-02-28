@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="bulma.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"> </script>
+	</head>
+	<body>
+		<section class="section">
+			<div class="maincolumns columns is-desktop is-vcentered">
+				<div class="column is-10 is-offset-1 notification is-info is-light box container">
+					<div class="title">
+						Reviews for <%=  result[0].name %>
+					</div>
+						<div class="table-container">
+						<table class="table is-bordered is-hoverable is-striped is-narrow">
+							<thead>
+							<tr>
+								<th> Review </th>
+                                <th> By </th>
+								<th > Rating </th>
+                                <th></th>
+							</tr>
+							</thead>
+							<% let i=0; %>
+							<% for(i=0; i < result.length; i++) { %>
+							<tr>
+								<td><%= result[i].details %></td>
+								<td><%= result[i].reviewer_name %></td>
+                                <td><%= result[i].rating %>/5</td>
+								<td> <a href='/deleteReview?id=<%= result[i].review_id %>'><i class ="fas fa-trash"> </i></a></td>
+								
+							</tr>
+							<% } %>
+							<tfoot>
+								<tr> <td colspan="4">
+								There are <%= i %> reviews.
+								</td> </tr>
+							</tfoot>
+						</table>
+						</div>
+				
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
